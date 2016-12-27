@@ -1,0 +1,37 @@
+{
+  "manifest_version": 2,
+  "name": "Getting started example",
+  "description": "This extension shows a Google Image search result for the current page",
+  "version": "1.0",
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html",
+    "default_title": "Click here!"
+  },
+  "permissions": [
+    "activeTab",
+    "https://ajax.googleapis.com/",
+    "tabs",
+    "storage"
+  ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "css": [
+        "tabsbar.css"
+      ],
+      "run_at": "document_start",
+      "js": [
+        "jquery-3.1.1.min.js",
+        "tabgetter.js"
+      ]
+    }
+  ]
+}
